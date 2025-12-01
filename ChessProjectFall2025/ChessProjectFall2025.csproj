@@ -52,19 +52,37 @@
     <Compile Include="AbilityAndItem.Designer.cs">
       <DependentUpon>AbilityAndItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="BaseGameLogic\BoardPosition.cs" />
+    <Compile Include="BaseGameLogic\ChessBoard.cs" />
+    <Compile Include="BaseGameLogic\ChessPiece.cs" />
+    <Compile Include="ChessBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ChessBoardForm.Designer.cs">
+      <DependentUpon>ChessBoardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChessPieces\Bishop.cs" />
+    <Compile Include="ChessPieces\King.cs" />
+    <Compile Include="ChessPieces\Knight.cs" />
+    <Compile Include="ChessPieces\Queen.cs" />
+    <Compile Include="ChessPieces\Rook.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChessPieces\Pawn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AbilityAndItem.resx">
       <DependentUpon>AbilityAndItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ChessBoardForm.resx">
+      <DependentUpon>ChessBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,5 +106,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

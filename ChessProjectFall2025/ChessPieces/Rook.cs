@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessProjectFall2025.BaseGameLogic;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,7 +11,10 @@ namespace ChessProjectFall2025.ChessPieces
 {
     public class Rook : ChessPiece
     {
-        public Rook() { }
+        public Rook(PieceColor color, BoardPosition position) : base(color, position)
+        {
+
+        }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessProjectFall2025.BaseGameLogic;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -15,32 +16,16 @@ namespace ChessProjectFall2025
         public Point Center { get; protected set; }
         public bool HasMoved { get; protected set; }
         public Size Size { get; protected set; } = new Size(100, 100);
+        public Point ScreenPosition { get; protected set; }
         public abstract void Draw(PaintEventArgs e);
         public abstract bool CanMoveTo(BoardPosition target, ChessBoard board);
-        public Point ScreenPosition { get; protected set; }
-
-        public enum PieceColor
-        {
-            White,
-            Black
-        }
-
-        public enum PieceType
-        {
-            King,
-            Queen,
-            Rook,
-            Bishop,
-            Knight,
-            Pawn
-        }
 
         protected ChessPiece(PieceColor color, BoardPosition position)
         {
             Color = color;
             Position = position;
             HasMoved = false;
-            UpdateScreenPosition(new Point(0, 0), 60); // Default values
+            UpdateScreenPosition(new Point(0, 0), 100); // Default values
         }
 
         public virtual void MoveTo(BoardPosition newPosition)
@@ -49,9 +34,12 @@ namespace ChessProjectFall2025
             HasMoved = true;
         }
 
-        public void UpdateScreenPosition()
+        public void UpdateScreenPosition(Point topLeftOfBoard, int squareSize)
         {
-
+            ScreenPosition = new Point(
+            topLeftOfBoard.X + (Position.X * squareSize) + (squareSize / 2),
+            topLeftOfBoard.Y + (Position.Y * squareSize) + (squareSize / 2)
+);
         }
 
 

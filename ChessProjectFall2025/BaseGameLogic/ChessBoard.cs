@@ -1,4 +1,5 @@
-﻿using ChessProjectFall2025.ChessPieces;
+﻿using ChessProjectFall2025.BaseGameLogic;
+using ChessProjectFall2025.ChessPieces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,7 +16,7 @@ namespace ChessProjectFall2025
         //list of all moves to be added later
         private Point topLeftOfBoard = new Point(100, 100);//staring point of chess board
         private int squareSize = 110;
-        public PieceColor CurrentPlayer { get; private set; } = PieceColor.White;
+        public BaseGameLogic.PieceColor CurrentPlayer { get; private set; } = BaseGameLogic.PieceColor.White;
 
         public ChessBoard()
         {

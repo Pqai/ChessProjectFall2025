@@ -8,5 +8,6 @@ namespace ChessProjectFall2025.BaseGameLogic
 {
     internal class ItemAbility
     {
+        //this is where the ui code for abilities and items go
     }
 }

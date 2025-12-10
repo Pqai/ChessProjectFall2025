@@ -57,6 +57,7 @@
     <Compile Include="BaseGameLogic\ChessPiece.cs" />
     <Compile Include="BaseGameLogic\Enums.cs" />
     <Compile Include="BaseGameLogic\ItemAbility.cs" />
+    <Compile Include="BaseGameLogic\Move.cs" />
     <Compile Include="ChessBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>

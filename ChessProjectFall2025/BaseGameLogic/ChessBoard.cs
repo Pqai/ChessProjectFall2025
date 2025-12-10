@@ -20,7 +20,7 @@ namespace ChessProjectFall2025
         private Brush darkSquareBrush = Brushes.SaddleBrown;
         private Brush lightSquareBrush = Brushes.Beige;
         private Brush selectedSquareBrush = new SolidBrush(Color.FromArgb(200, Color.Yellow));
-        public PieceColor CurrentPlayer { get; private set; } = BaseGameLogic.PieceColor.White;
+        public PieceColor CurrentPlayer { get; private set; } = PieceColor.White;
         public GameState State { get; private set; } = GameState.InProgress;
 
 
@@ -331,7 +331,7 @@ namespace ChessProjectFall2025
             {
                 if (!HasAnyValidMoves(CurrentPlayer))
                 {
-                    State = GameState.Checkmate;
+                    State = GameState.CheckMate;
                     OnGameStateChanged(new GameStateChangedEventArgs
                     {
                         NewState = State,
@@ -346,7 +346,7 @@ namespace ChessProjectFall2025
             }
             else if (!HasAnyValidMoves(CurrentPlayer))
             {
-                State = GameState.Stalemate;
+                State = GameState.StaleMate;
                 OnGameStateChanged(new GameStateChangedEventArgs { NewState = State });
             }
             else
@@ -485,6 +485,10 @@ namespace ChessProjectFall2025
                 }
             }
         }
+
+        public event EventHandler<PieceMovedEventArgs> PieceMoved;
+        public event EventHandler<PlayerChangedEventArgs> PlayerChanged; 
+        public event EventHandler<GameStateChangedEventArgs> GameStateChanged;
 
         protected virtual void OnPieceMoved(PieceMovedEventArgs e)
         {

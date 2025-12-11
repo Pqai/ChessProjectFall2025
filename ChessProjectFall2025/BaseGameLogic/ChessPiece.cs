@@ -65,7 +65,10 @@ namespace ChessProjectFall2025
         public virtual void OnCapture()//general function for when piece is caught
         {
             //call the special capture from item and ability.cs
-            //make basic capture method 
+            /*if () finish soon once i start on abilities and items
+            {
+
+            }*/
         }
 
         protected bool IsPathClear(BoardPosition from, BoardPosition to, ChessBoard board)

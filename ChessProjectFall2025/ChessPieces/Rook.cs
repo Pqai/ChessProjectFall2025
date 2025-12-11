@@ -78,7 +78,14 @@ namespace ChessProjectFall2025.ChessPieces
                 BaseSlantLeft,
             };
 
-            using (Pen pen = new Pen(Color.Yellow, 2))
+            //body colour
+            using (var brush = new SolidBrush(PieceColorValue))
+            {
+                e.Graphics.FillPolygon(brush, rook);
+            }
+
+            //outline
+            using (var pen = new Pen(OutlineColor, 2))
             {
                 e.Graphics.DrawPolygon(pen, rook);
             }

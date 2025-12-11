@@ -26,7 +26,7 @@ namespace ChessProjectFall2025
         public virtual bool CanJumpOverPieces => false;
         public virtual bool MovesDiagonally => false;
         public virtual bool MovesStraight => false;
-        public virtual int MaxSteps => 8; //change depending on piece 1 for king 8 for rook
+        public virtual int MaxSteps { get; set; } = 8; //change depending on piece 1 for king 8 for rook
 
         protected virtual Color WhitePieceColor => DrawingColor.Ivory;
         protected virtual Color WhiteOutlineColor => DrawingColor.DarkGray;

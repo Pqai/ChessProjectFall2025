@@ -1,6 +1,7 @@
 ﻿using ChessProjectFall2025.BaseGameLogic;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -11,6 +12,7 @@ namespace ChessProjectFall2025
 {
     public class Pawn : ChessPiece
     {
+        public override int MaxSteps => 2;
         public int Direction => Color == PieceColor.White ? 1 : -1;
         private int StartingRank => Color == PieceColor.White ? 1 : 6;
 
@@ -36,7 +38,7 @@ namespace ChessProjectFall2025
         {
             var moves = new List<BoardPosition>();
 
-            var oneForward = new BoardPosition()
+            var oneForward = new BoardPosition();
         }
     }
 }

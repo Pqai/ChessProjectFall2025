@@ -16,7 +16,8 @@ namespace ChessProjectFall2025
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChessTitleScreen());
+            //Application.Run(new ChessTitleScreen()); //turn back on later
+            Application.Run(new ChessBoardForm());
         }
     }
 }

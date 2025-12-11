@@ -23,5 +23,10 @@ namespace ChessProjectFall2025.ChessPieces
         {
             throw new NotImplementedException();
         }
+
+        public override List<BoardPosition> GetValidMoves(ChessBoard board)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

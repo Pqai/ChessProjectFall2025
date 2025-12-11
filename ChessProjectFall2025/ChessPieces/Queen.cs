@@ -12,6 +12,7 @@ namespace ChessProjectFall2025.ChessPieces
     {
         public Queen(PieceColor color, BoardPosition position) : base(color, position)
         {
+
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
@@ -20,6 +21,11 @@ namespace ChessProjectFall2025.ChessPieces
         }
 
         public override void Draw(PaintEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<BoardPosition> GetValidMoves(ChessBoard board)
         {
             throw new NotImplementedException();
         }

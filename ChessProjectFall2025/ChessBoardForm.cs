@@ -31,7 +31,7 @@ namespace ChessProjectFall2025
             e.Graphics.Clear(Color.White);
 
             // Draw the chess board and pieces
-            board.Draw(e);
+            board.Draw(e, selectedPosition, validMoves);
 
             // Draw current player indicator
             DrawPlayerIndicator(e);
@@ -49,11 +49,17 @@ namespace ChessProjectFall2025
         private void ChessBoardForm_MouseClick(object sender, MouseEventArgs e)
         {
             var clickedPos = GetBoardPositionFromMouse(e.Location);
-            //if (!clickedPos.HasValue) return;
 
-            if (!clickedPos.HasValue)
+            if (clickedPos.HasValue)
             {
-                // Select a piece
+                selectedPosition = null;
+                validMoves.Clear();
+                this.Invalidate();
+                return;
+            }
+            // Select a piece
+            if (!selectedPosition.HasValue)
+            {
                 var piece = board.GetPieceAt(clickedPos.Value);
                 if (piece != null && piece.Color == board.CurrentPlayer)
                 {
@@ -64,9 +70,10 @@ namespace ChessProjectFall2025
             }
             else
             {
-                // Try to move
+                // Try to move the piece
                 bool moved = board.MovePiece(selectedPosition.Value, clickedPos.Value);
                 selectedPosition = null;
+                validMoves.Clear();
                 this.Invalidate();
 
                 if (!moved)
@@ -79,9 +86,12 @@ namespace ChessProjectFall2025
 
         private BoardPosition? GetBoardPositionFromMouse(Point mousePos)
         { 
-            
-            
-            return null;
+            return board.ScreenToBoardPosition(mousePos);
+        }
+
+        private void ChessBoardForm_Resize(object sender, EventArgs e)
+        {
+            this.Invalidate();
         }
     }
 }

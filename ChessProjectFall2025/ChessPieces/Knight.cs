@@ -14,6 +14,7 @@ namespace ChessProjectFall2025.ChessPieces
         public Knight(PieceColor color, BoardPosition position) : base(color, position)
         {
             Type = PieceType.Knight;
+            Size = new Size(70, 70);
             CanJumpOverPieces = true;
         }
 

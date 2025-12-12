@@ -14,18 +14,37 @@ namespace ChessProjectFall2025.ChessPieces
         public King(PieceColor color, BoardPosition position) : base(color, position)
         {
             Type = PieceType.King;
+            Size = new Size(80, 80);
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
         {
-            throw new NotImplementedException();
+            int dx = Math.Abs(target.X - Position.X);
+            int dy = Math.Abs(target.Y - Position.Y);
+
+            return dx <= 1 && dy <= 1 && (dx != 0 || dy != 0) && !board.IsSquareOccupiedByFriend(target, Color);
         }
 
  
 
         public override List<BoardPosition> GetValidMoves(ChessBoard board)
         {
-            throw new NotImplementedException();
+            var moves = new List<BoardPosition>();
+
+            for (int dx = -1; dx <= 1; dx++)
+            {
+                for (int dy = -1; dy <= 1; dy++)
+                {
+                    if (dx == 0 && dy == 0) continue;
+
+                    var target = new BoardPosition(Position.X + dx, Position.Y + dy);
+                    if (target.IsValid() && CanMoveTo(target, board))
+                    {
+                        moves.Add(target);
+                    }
+                }
+            }
+            return moves;
         }
 
         public override void Draw(PaintEventArgs e)

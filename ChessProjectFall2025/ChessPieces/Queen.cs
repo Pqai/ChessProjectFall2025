@@ -15,19 +15,40 @@ namespace ChessProjectFall2025.ChessPieces
         {
             Type = PieceType.Pawn;
             Size = new Size(80, 80);
-            MaxSteps = 8;
+            MovesDiagonally = true;
+            MovesStraight = true;
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
         {
-            throw new NotImplementedException();
+            int dx = Math.Abs(target.X - Position.X);
+            int dy = Math.Abs(target.Y - Position.Y);
+
+            bool isStraightMove = (dx == 0 && dy > 0) || (dy == 0 && dx > 0);
+            bool isDiagonalMove = dx == dy && dx > 0;
+
+            if (!isStraightMove && !isDiagonalMove)
+            {
+                return false;
+            }
+            if (!IsPathClear(Position, target, board))
+            {
+                return false;
+            }
+            return !board.IsSquareOccupiedByFriend(target, Color);
         }
 
 
 
         public override List<BoardPosition> GetValidMoves(ChessBoard board)
         {
-            throw new NotImplementedException();
+            var moves = new List<BoardPosition>();
+
+            //this is basically combining rook and bishop
+            moves.AddRange(GetAllDiagonalMoves(board));
+            moves.AddRange(GetAllStraightMoves(board));
+
+            return moves;
         }
 
         public override void Draw(PaintEventArgs e)

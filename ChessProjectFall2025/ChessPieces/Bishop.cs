@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +21,25 @@ namespace ChessProjectFall2025.ChessPieces
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
         {
-            throw new NotImplementedException();
+            int dx = Math.Abs(target.X - Position.X);
+            int dy = Math.Abs(target.Y - Position.Y);
+
+            if(dx != dy || dx == 0)
+            {
+                return false;
+            }
+
+            if(!IsPathClear(Position, target, board))
+            {
+                return false;
+            }
+
+            return !board.IsSquareOccupiedByFriend(target, Color);
+        }
+
+        public override List<BoardPosition> GetValidMoves(ChessBoard board)
+        {
+            return GetAllDiagonalMoves(board);
         }
 
         public override void Draw(PaintEventArgs e)
@@ -69,11 +88,6 @@ namespace ChessProjectFall2025.ChessPieces
             {
                 e.Graphics.DrawPolygon(pen, bishop);
             }
-        }
-
-        public override List<BoardPosition> GetValidMoves(ChessBoard board)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -24,7 +24,9 @@ namespace ChessProjectFall2025.ChessPieces
             int dy = Math.Abs(target.Y - Position.Y);
 
             //two spots in x, one spot in y OR two spots in y, one spot in x
-            if (!((dx == 2 && dy == 1) || (dx == 1 && dy == 2)))
+            bool isKnightMove = (dx == 2 && dy == 1) || (dx == 1 && dy == 2);
+
+            if (!isKnightMove)
             {
                 return false;
             }
@@ -33,7 +35,20 @@ namespace ChessProjectFall2025.ChessPieces
 
         public override List<BoardPosition> GetValidMoves(ChessBoard board)
         {
-            throw new NotImplementedException();
+            var moves = new List<BoardPosition>();
+
+            int[] dxArray = { 2, 2, -2, -2, 1, 1, -1, -1 };
+            int[] dyArray = { 1, -1, 1, -1, 2, -2, 2, -2 };
+
+            for (int i = 0; i < 8; i++)
+            {
+                var target = new BoardPosition(Position.X + dxArray[i], Position.Y + dyArray[i]);
+                if (target.IsValid() && CanMoveTo(target, board))
+                {
+                    moves.Add(target);
+                }
+            }
+            return moves;
         }
 
         public override void Draw(PaintEventArgs e)

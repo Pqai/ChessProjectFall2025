@@ -11,8 +11,6 @@ namespace ChessProjectFall2025.ChessPieces
 {
     public class Queen : ChessPiece
     {
-        public int Direction => Color == PieceColor.White ? 1 : -1;
-
         public Queen(PieceColor color, BoardPosition position) : base(color, position)
         {
             Type = PieceType.Pawn;
@@ -21,6 +19,13 @@ namespace ChessProjectFall2025.ChessPieces
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        public override List<BoardPosition> GetValidMoves(ChessBoard board)
         {
             throw new NotImplementedException();
         }
@@ -63,19 +68,14 @@ namespace ChessProjectFall2025.ChessPieces
 
             using (var brush = new SolidBrush(PieceColorValue))
             {
-                e.Graphics.FillPolygon(brush, pawn);
+                e.Graphics.FillPolygon(brush, queen);
             }
 
             //outline
             using (var pen = new Pen(OutlineColor, 2))
             {
-                e.Graphics.DrawPolygon(pen, pawn);
+                e.Graphics.DrawPolygon(pen, queen);
             }
-        }
-
-        public override List<BoardPosition> GetValidMoves(ChessBoard board)
-        {
-            throw new NotImplementedException();
         }
     }
 }

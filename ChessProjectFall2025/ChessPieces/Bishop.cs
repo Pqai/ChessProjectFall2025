@@ -11,13 +11,11 @@ namespace ChessProjectFall2025.ChessPieces
 {
     public class Bishop : ChessPiece
     {
-        public int Direction => Color == PieceColor.White ? 1 : -1;
-
         public Bishop(PieceColor color, BoardPosition position) : base(color, position)
         {
             Type = PieceType.Bishop;
             Size = new Size(70, 70);
-            MaxSteps = 8;
+            MovesDiagonally = true;
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
@@ -63,13 +61,13 @@ namespace ChessProjectFall2025.ChessPieces
 
             using (var brush = new SolidBrush(PieceColorValue))
             {
-                e.Graphics.FillPolygon(brush, pawn);
+                e.Graphics.FillPolygon(brush, bishop);
             }
 
             //outline
             using (var pen = new Pen(OutlineColor, 2))
             {
-                e.Graphics.DrawPolygon(pen, pawn);
+                e.Graphics.DrawPolygon(pen, bishop);
             }
         }
 

@@ -11,27 +11,40 @@ namespace ChessProjectFall2025.ChessPieces
 {
     public class Rook : ChessPiece
     {
-        public int Direction => Color == PieceColor.White ? 1 : -1;
-
         public Rook(PieceColor color, BoardPosition position) : base(color, position)
         {
             Type = PieceType.Rook;
             Size = new Size(70, 70);
-            MaxSteps = 8;
+            MovesStraight = true;
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
         {
+            int dx = Math.Abs(target.X - Position.X);
+            int dy = Math.Abs(target.Y - Position.Y);
 
+            if(!((dx == 0 && dy > 0) || (dy == 0 && dx > 0)))
+            {
+                return false;
+            }
+
+            if (!IsPathClear(Position, target, board))
+            {
+                return false;
+            }
+
+            return !board.IsSquareOccupiedByFriend(target, Color);
+        }
+
+        public override List<BoardPosition> GetValidMoves(ChessBoard board)
+        {
+            return GetAllStraightMoves(board);
         }
 
         public override void Draw(PaintEventArgs e)
         {
-            //Pen pen = new Pen(Color.Yellow, 2);
-            //Color ChessPiece = Color.Yellow;
             Graphics g = e.Graphics;
 
-            //to fix later
             //rook main body
             Point topLeft = new Point(ScreenPosition.X - 20, ScreenPosition.Y - 25);
             Point topRight = new Point(ScreenPosition.X + 20, ScreenPosition.Y - 25);
@@ -93,11 +106,6 @@ namespace ChessProjectFall2025.ChessPieces
             {
                 e.Graphics.DrawPolygon(pen, rook);
             }
-        }
-
-        public override List<BoardPosition> GetValidMoves(ChessBoard board)
-        {
-            throw new NotImplementedException();
         }
     }
 }

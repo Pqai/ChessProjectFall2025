@@ -11,14 +11,18 @@ namespace ChessProjectFall2025.ChessPieces
 {
     public class Rook : ChessPiece
     {
+        public int Direction => Color == PieceColor.White ? 1 : -1;
+
         public Rook(PieceColor color, BoardPosition position) : base(color, position)
         {
-
+            Type = PieceType.Rook;
+            Size = new Size(70, 70);
+            MaxSteps = 8;
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
         {
-            throw new NotImplementedException();
+
         }
 
         public override void Draw(PaintEventArgs e)

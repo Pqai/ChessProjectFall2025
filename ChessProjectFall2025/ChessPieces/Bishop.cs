@@ -11,8 +11,13 @@ namespace ChessProjectFall2025.ChessPieces
 {
     public class Bishop : ChessPiece
     {
+        public int Direction => Color == PieceColor.White ? 1 : -1;
+
         public Bishop(PieceColor color, BoardPosition position) : base(color, position)
         {
+            Type = PieceType.Bishop;
+            Size = new Size(70, 70);
+            MaxSteps = 8;
         }
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
@@ -24,24 +29,24 @@ namespace ChessProjectFall2025.ChessPieces
         {
             Graphics g = e.Graphics;
 
-            //pawn Base
+            //Bishop Base
             Point bottomLeft = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 30);
             Point bottomRight = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 30);
             Point baseTopL = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 25);
             Point baseTopR = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 25);
 
-            //pawn body
+            //Bishop body
             Point bottomBodyL = new Point(ScreenPosition.X - 15, ScreenPosition.Y + 25);
             Point bottomBodyR = new Point(ScreenPosition.X + 15, ScreenPosition.Y + 25);
             Point topBodyL = new Point(ScreenPosition.X - 12, ScreenPosition.Y + 10);
             Point topBodyR = new Point(ScreenPosition.X + 12, ScreenPosition.Y + 10);
 
-            //pawn head
+            //Bishop head
             Point headLeft = new Point(ScreenPosition.X - 15, ScreenPosition.Y - 5);
             Point headRight = new Point(ScreenPosition.X + 15, ScreenPosition.Y - 5);
             Point headTop = new Point(ScreenPosition.X + 0, ScreenPosition.Y - 10);
 
-            Point[] pawn = new Point[]
+            Point[] bishop = new Point[]
             {
                 bottomLeft,
                 baseTopL,

@@ -15,7 +15,6 @@ namespace ChessProjectFall2025
     {
         public override int MaxSteps => 2;
         public int Direction => Color == PieceColor.White ? 1 : -1;
-        private int StartingRank => Color == PieceColor.White ? 1 : 6;
 
         public Pawn(PieceColor color, BoardPosition position) : base(color, position)
         {

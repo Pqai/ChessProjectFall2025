@@ -23,6 +23,13 @@ namespace ChessProjectFall2025
             this.DoubleBuffered = true;
             this.Paint += ChessBoardForm_Paint;
             this.MouseClick += ChessBoardForm_MouseClick;
+            this.Resize += ChessBoardForm_Resize;
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.ClientSize = new Size(8 * 60 + 100, 8 * 60 + 100);
         }
 
         private void ChessBoardForm_Paint(object sender, PaintEventArgs e)
@@ -70,6 +77,15 @@ namespace ChessProjectFall2025
             }
             else
             {
+                // Clicking again to deselect
+                if (clickedPos.Value == selectedPosition.Value)
+                {
+                    selectedPosition = null;
+                    validMoves.Clear();
+                    this.Invalidate();
+                    return;
+                }
+
                 // Try to move the piece
                 bool moved = board.MovePiece(selectedPosition.Value, clickedPos.Value);
                 selectedPosition = null;

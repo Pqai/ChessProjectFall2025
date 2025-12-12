@@ -15,8 +15,8 @@ namespace ChessProjectFall2025
     {
         private ChessPiece[,] squares = new ChessPiece[8, 8];
         private List<Move> moveHistory = new List<Move>();//the move history list
-        private Point topLeftOfBoard = new Point(100, 100);//staring point of chess board
-        private int squareSize = 110;
+        private Point topLeftOfBoard = new Point(50, 50);//staring point of chess board
+        private int squareSize = 80;
         private Brush darkSquareBrush = Brushes.SaddleBrown;
         private Brush lightSquareBrush = Brushes.Beige;
         private Brush selectedSquareBrush = new SolidBrush(Color.FromArgb(200, Color.Yellow));

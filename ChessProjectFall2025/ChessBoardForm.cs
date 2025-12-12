@@ -14,6 +14,7 @@ namespace ChessProjectFall2025
     {
         private ChessBoard board;
         private BoardPosition? selectedPosition = null;
+        private List<BoardPosition> validMoves = new List<BoardPosition>();
 
         public ChessBoardForm()
         {
@@ -48,16 +49,17 @@ namespace ChessProjectFall2025
         private void ChessBoardForm_MouseClick(object sender, MouseEventArgs e)
         {
             var clickedPos = GetBoardPositionFromMouse(e.Location);
-            if (!clickedPos.HasValue) return;
+            //if (!clickedPos.HasValue) return;
 
-            if (!selectedPosition.HasValue)
+            if (!clickedPos.HasValue)
             {
                 // Select a piece
                 var piece = board.GetPieceAt(clickedPos.Value);
                 if (piece != null && piece.Color == board.CurrentPlayer)
                 {
                     selectedPosition = clickedPos.Value;
-                    this.Invalidate(); // Trigger redraw
+                    validMoves = board.GetValidMovesForPiece(clickedPos.Value);
+                    this.Invalidate();
                 }
             }
             else
@@ -65,7 +67,7 @@ namespace ChessProjectFall2025
                 // Try to move
                 bool moved = board.MovePiece(selectedPosition.Value, clickedPos.Value);
                 selectedPosition = null;
-                this.Invalidate(); // Trigger redraw
+                this.Invalidate();
 
                 if (!moved)
                 {
@@ -76,11 +78,10 @@ namespace ChessProjectFall2025
         }
 
         private BoardPosition? GetBoardPositionFromMouse(Point mousePos)
-        {
-            // Convert screen coordinates to board coordinates
-            // You'll need to know your board's position and square size
-            // This depends on how you implement ChessBoard.Draw()
-            return null; // Implement based on your board layout
+        { 
+            
+            
+            return null;
         }
     }
 }

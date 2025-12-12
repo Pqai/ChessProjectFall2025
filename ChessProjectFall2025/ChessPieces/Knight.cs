@@ -20,10 +20,16 @@ namespace ChessProjectFall2025.ChessPieces
 
         public override bool CanMoveTo(BoardPosition target, ChessBoard board)
         {
-            throw new NotImplementedException();
-        }
+            int dx = Math.Abs(target.X - Position.X);
+            int dy = Math.Abs(target.Y - Position.Y);
 
-  
+            //two spots in x, one spot in y OR two spots in y, one spot in x
+            if (!((dx == 2 && dy == 1) || (dx == 1 && dy == 2)))
+            {
+                return false;
+            }
+            return !board.IsSquareOccupiedByFriend(target, Color);
+        }
 
         public override List<BoardPosition> GetValidMoves(ChessBoard board)
         {

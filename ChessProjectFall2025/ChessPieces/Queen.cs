@@ -26,21 +26,21 @@ namespace ChessProjectFall2025.ChessPieces
             Graphics g = e.Graphics;
 
             //pawn Base
-            Point bottomLeft = new Point(Center.X - 20, Center.Y + 30);
-            Point bottomRight = new Point(Center.X + 20, Center.Y + 30);
-            Point baseTopL = new Point(Center.X - 20, Center.Y + 25);
-            Point baseTopR = new Point(Center.X + 20, Center.Y + 25);
+            Point bottomLeft = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 30);
+            Point bottomRight = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 30);
+            Point baseTopL = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 25);
+            Point baseTopR = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 25);
 
             //pawn body
-            Point bottomBodyL = new Point(Center.X - 15, Center.Y + 25);
-            Point bottomBodyR = new Point(Center.X + 15, Center.Y + 25);
-            Point topBodyL = new Point(Center.X - 12, Center.Y + 10);
-            Point topBodyR = new Point(Center.X + 12, Center.Y + 10);
+            Point bottomBodyL = new Point(ScreenPosition.X - 15, ScreenPosition.Y + 25);
+            Point bottomBodyR = new Point(ScreenPosition.X + 15, ScreenPosition.Y + 25);
+            Point topBodyL = new Point(ScreenPosition.X - 12, ScreenPosition.Y + 10);
+            Point topBodyR = new Point(ScreenPosition.X + 12, ScreenPosition.Y + 10);
 
             //pawn head
-            Point headLeft = new Point(Center.X - 15, Center.Y - 5);
-            Point headRight = new Point(Center.X + 15, Center.Y - 5);
-            Point headTop = new Point(Center.X + 0, Center.Y - 10);
+            Point headLeft = new Point(ScreenPosition.X - 15, ScreenPosition.Y - 5);
+            Point headRight = new Point(ScreenPosition.X + 15, ScreenPosition.Y - 5);
+            Point headTop = new Point(ScreenPosition.X + 0, ScreenPosition.Y - 10);
 
             Point[] pawn = new Point[]
             {

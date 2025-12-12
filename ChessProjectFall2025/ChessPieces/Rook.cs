@@ -29,30 +29,30 @@ namespace ChessProjectFall2025.ChessPieces
 
             //to fix later
             //rook main body
-            Point topLeft = new Point(Center.X - 20, Center.Y - 25);
-            Point topRight = new Point(Center.X + 20, Center.Y - 25);
-            Point bottomRight = new Point(Center.X + 25, Center.Y + 20);
-            Point bottomLeft = new Point(Center.X - 25, Center.Y + 20);
+            Point topLeft = new Point(ScreenPosition.X - 20, ScreenPosition.Y - 25);
+            Point topRight = new Point(ScreenPosition.X + 20, ScreenPosition.Y - 25);
+            Point bottomRight = new Point(ScreenPosition.X + 25, ScreenPosition.Y + 20);
+            Point bottomLeft = new Point(ScreenPosition.X - 25, ScreenPosition.Y + 20);
 
             //rook head
-            Point bottomSlantLeft = new Point(Center.X - 25, Center.Y - 29);
-            Point bottomSlantRight = new Point(Center.X + 25, Center.Y - 29);
-            Point VerticalWallLeft = new Point(Center.X - 25, Center.Y - 40);
-            Point VerticalWallRight = new Point(Center.X + 25, Center.Y - 40);
-            Point crownLeft = new Point(Center.X - 16, Center.Y - 40);
-            Point crownDipLeft = new Point(Center.X - 16, Center.Y - 35);
-            Point crownRight = new Point(Center.X + 16, Center.Y - 40);
-            Point crownDipRight = new Point(Center.X + 16, Center.Y - 35);
-            Point CrownDipMiddleR = new Point(Center.X + 9, Center.Y - 35);
-            Point CrownDipMiddleL = new Point(Center.X - 9, Center.Y - 35);
-            Point CrownRiseMiddleR = new Point(Center.X + 9, Center.Y - 40);
-            Point CrownRiseMiddleL = new Point(Center.X - 9, Center.Y - 40);
+            Point bottomSlantLeft = new Point(ScreenPosition.X - 25, ScreenPosition.Y - 29);
+            Point bottomSlantRight = new Point(ScreenPosition.X + 25, ScreenPosition.Y - 29);
+            Point VerticalWallLeft = new Point(ScreenPosition.X - 25, ScreenPosition.Y - 40);
+            Point VerticalWallRight = new Point(ScreenPosition.X + 25, ScreenPosition.Y - 40);
+            Point crownLeft = new Point(ScreenPosition.X - 16, ScreenPosition.Y - 40);
+            Point crownDipLeft = new Point(ScreenPosition.X - 16, ScreenPosition.Y - 35);
+            Point crownRight = new Point(ScreenPosition.X + 16, ScreenPosition.Y - 40);
+            Point crownDipRight = new Point(ScreenPosition.X + 16, ScreenPosition.Y - 35);
+            Point CrownDipMiddleR = new Point(ScreenPosition.X + 9, ScreenPosition.Y - 35);
+            Point CrownDipMiddleL = new Point(ScreenPosition.X - 9, ScreenPosition.Y - 35);
+            Point CrownRiseMiddleR = new Point(ScreenPosition.X + 9, ScreenPosition.Y - 40);
+            Point CrownRiseMiddleL = new Point(ScreenPosition.X - 9, ScreenPosition.Y - 40);
 
             //rook base
-            Point BaseSlantLeft = new Point(Center.X - 30, Center.Y + 25);
-            Point BaseSlantRight = new Point(Center.X + 30, Center.Y + 25);
-            Point baseWallLeft = new Point(Center.X - 30, Center.Y + 30);
-            Point baseWallRight = new Point(Center.X + 30, Center.Y + 30);
+            Point BaseSlantLeft = new Point(ScreenPosition.X - 30, ScreenPosition.Y + 25);
+            Point BaseSlantRight = new Point(ScreenPosition.X + 30, ScreenPosition.Y + 25);
+            Point baseWallLeft = new Point(ScreenPosition.X - 30, ScreenPosition.Y + 30);
+            Point baseWallRight = new Point(ScreenPosition.X + 30, ScreenPosition.Y + 30);
 
             Point[] rook = new Point[]
             {

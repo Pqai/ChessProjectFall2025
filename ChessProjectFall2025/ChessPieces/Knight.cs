@@ -56,35 +56,49 @@ namespace ChessProjectFall2025.ChessPieces
             Graphics g = e.Graphics;
 
             //knight Base
-            Point bottomLeft = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 30);
-            Point bottomRight = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 30);
-            Point baseTopL = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 25);
-            Point baseTopR = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 25);
+            Point bottomLeft = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 25);
+            Point bottomRight = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 25);
+            Point baseTopL = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 5);
+            Point baseTopR = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 5);
+            Point baseTopAnchorL = new Point(ScreenPosition.X - 10, ScreenPosition.Y + 5);
+            Point baseTopAnchorR = new Point(ScreenPosition.X + 10, ScreenPosition.Y + 5);
 
             //knight body
-            Point bottomBodyL = new Point(ScreenPosition.X - 15, ScreenPosition.Y + 25);
-            Point bottomBodyR = new Point(ScreenPosition.X + 15, ScreenPosition.Y + 25);
-            Point topBodyL = new Point(ScreenPosition.X - 12, ScreenPosition.Y + 10);
-            Point topBodyR = new Point(ScreenPosition.X + 12, ScreenPosition.Y + 10);
-
-            //knight head
-            Point headLeft = new Point(ScreenPosition.X - 15, ScreenPosition.Y - 5);
-            Point headRight = new Point(ScreenPosition.X + 15, ScreenPosition.Y - 5);
-            Point headTop = new Point(ScreenPosition.X + 0, ScreenPosition.Y - 10);
+            Point leftChestPeak = new Point(ScreenPosition.X - 22, ScreenPosition.Y - 10);//
+            Point leftChestCollar = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 15);//
+            Point leftNeckValley = new Point(ScreenPosition.X + 0, ScreenPosition.Y - 20);//
+            Point leftMandibleConnector = new Point(ScreenPosition.X - 14, ScreenPosition.Y - 23);//
+            Point leftMandibleCorner = new Point(ScreenPosition.X - 17, ScreenPosition.Y - 20);//
+            Point leftMandibleChin = new Point(ScreenPosition.X - 19, ScreenPosition.Y - 18);//
+            Point leftSnoutTop = new Point(ScreenPosition.X - 21, ScreenPosition.Y - 27);//
+            Point leftForehead = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 30);//
+            Point leftEar = new Point(ScreenPosition.X + 0, ScreenPosition.Y - 37);//
+            Point leftEarStartOfHair = new Point(ScreenPosition.X + 3, ScreenPosition.Y - 30);//
+            Point rightHairPointOne= new Point(ScreenPosition.X + 12, ScreenPosition.Y - 25);//
+            Point rightHairPointTwo = new Point(ScreenPosition.X + 18, ScreenPosition.Y - 10);//
+            Point rightHairPointThree = new Point(ScreenPosition.X + 16, ScreenPosition.Y - 0);//
 
             Point[] knight = new Point[]
             {
                 bottomLeft,
                 baseTopL,
-                bottomBodyL,
-                topBodyL,
-                headLeft,
-                headTop,
-                headRight,
-                topBodyR,
-                bottomBodyR,
+                baseTopAnchorL,
+                leftChestPeak,
+                leftChestCollar,
+                leftNeckValley,
+                leftMandibleConnector,
+                leftMandibleCorner,
+                leftMandibleChin,
+                leftSnoutTop,
+                leftForehead,
+                leftEar,
+                leftEarStartOfHair,
+                rightHairPointOne,
+                rightHairPointTwo,
+                rightHairPointThree,
+                baseTopAnchorR,
                 baseTopR,
-                bottomRight,
+                bottomRight
             };
 
             using (var brush = new SolidBrush(PieceColorValue))

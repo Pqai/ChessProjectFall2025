@@ -26,12 +26,6 @@ namespace ChessProjectFall2025
             this.Resize += ChessBoardForm_Resize;
         }
 
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            this.ClientSize = new Size(8 * 60 + 100, 8 * 60 + 100);
-        }
-
         private void ChessBoardForm_Paint(object sender, PaintEventArgs e)
         {
             // Clear background
@@ -55,9 +49,9 @@ namespace ChessProjectFall2025
 
         private void ChessBoardForm_MouseClick(object sender, MouseEventArgs e)
         {
-            var clickedPos = GetBoardPositionFromMouse(e.Location);
+            var clickedPos = board.ScreenToBoardPosition(new Point(e.X, e.Y));
 
-            if (clickedPos.HasValue)
+            if (!clickedPos.HasValue)
             {
                 selectedPosition = null;
                 validMoves.Clear();
@@ -98,11 +92,6 @@ namespace ChessProjectFall2025
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-        }
-
-        private BoardPosition? GetBoardPositionFromMouse(Point mousePos)
-        { 
-            return board.ScreenToBoardPosition(mousePos);
         }
 
         private void ChessBoardForm_Resize(object sender, EventArgs e)

@@ -52,14 +52,14 @@ namespace ChessProjectFall2025.ChessPieces
             Graphics g = e.Graphics;
 
             //King Base
-            Point BaseSlantLeft = new Point(ScreenPosition.X - 30, ScreenPosition.Y + 25);
-            Point BaseSlantRight = new Point(ScreenPosition.X + 30, ScreenPosition.Y + 25);
-            Point baseWallLeft = new Point(ScreenPosition.X - 30, ScreenPosition.Y + 30);
-            Point baseWallRight = new Point(ScreenPosition.X + 30, ScreenPosition.Y + 30);
+            Point BaseSlantLeft = new Point(ScreenPosition.X - 25, ScreenPosition.Y + 25);
+            Point BaseSlantRight = new Point(ScreenPosition.X + 25, ScreenPosition.Y + 25);
+            Point baseWallLeft = new Point(ScreenPosition.X - 25, ScreenPosition.Y + 35);
+            Point baseWallRight = new Point(ScreenPosition.X + 25, ScreenPosition.Y + 35);
 
             //King body
-            Point bottomBodyL = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 25);
-            Point bottomBodyR = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 25);
+            Point bottomBodyL = new Point(ScreenPosition.X - 16, ScreenPosition.Y + 25);
+            Point bottomBodyR = new Point(ScreenPosition.X + 16, ScreenPosition.Y + 25);
             Point topBodyL = new Point(ScreenPosition.X - 8, ScreenPosition.Y + 5);
             Point topBodyR = new Point(ScreenPosition.X + 8, ScreenPosition.Y + 5);
             //weird bump before crown
@@ -76,12 +76,12 @@ namespace ChessProjectFall2025.ChessPieces
             //Cross Drawing
             Point crossLI = new Point(ScreenPosition.X - 4, ScreenPosition.Y - 23);//
             Point crossLO = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 23);
-            Point crossLOU = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 25);
-            Point crossLOR = new Point(ScreenPosition.X - 4, ScreenPosition.Y - 25);
-            Point crossLIU = new Point(ScreenPosition.X - 4, ScreenPosition.Y - 28);
-            Point crossMR = new Point(ScreenPosition.X + 4, ScreenPosition.Y - 28);
-            Point crossRD = new Point(ScreenPosition.X + 4, ScreenPosition.Y - 25);
-            Point crossROR = new Point(ScreenPosition.X + 8, ScreenPosition.Y - 25);
+            Point crossLOU = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 28);
+            Point crossLOR = new Point(ScreenPosition.X - 4, ScreenPosition.Y - 28);
+            Point crossLIU = new Point(ScreenPosition.X - 4, ScreenPosition.Y - 31);
+            Point crossMR = new Point(ScreenPosition.X + 4, ScreenPosition.Y - 31);
+            Point crossRD = new Point(ScreenPosition.X + 4, ScreenPosition.Y - 28);
+            Point crossROR = new Point(ScreenPosition.X + 8, ScreenPosition.Y - 28);
             Point crossROD = new Point(ScreenPosition.X + 8, ScreenPosition.Y - 23);
             Point crossRIL = new Point(ScreenPosition.X + 4, ScreenPosition.Y - 23);
 

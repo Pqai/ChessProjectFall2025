@@ -56,35 +56,71 @@ namespace ChessProjectFall2025.ChessPieces
             Graphics g = e.Graphics;
 
             //Queen Base
-            Point bottomLeft = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 30);
-            Point bottomRight = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 30);
-            Point baseTopL = new Point(ScreenPosition.X - 20, ScreenPosition.Y + 25);
-            Point baseTopR = new Point(ScreenPosition.X + 20, ScreenPosition.Y + 25);
+            Point BaseSlantLeft = new Point(ScreenPosition.X - 25, ScreenPosition.Y + 25);
+            Point BaseSlantRight = new Point(ScreenPosition.X + 25, ScreenPosition.Y + 25);
+            Point baseWallLeft = new Point(ScreenPosition.X - 25, ScreenPosition.Y + 35);
+            Point baseWallRight = new Point(ScreenPosition.X + 25, ScreenPosition.Y + 35);
 
             //Queen body
-            Point bottomBodyL = new Point(ScreenPosition.X - 15, ScreenPosition.Y + 25);
-            Point bottomBodyR = new Point(ScreenPosition.X + 15, ScreenPosition.Y + 25);
-            Point topBodyL = new Point(ScreenPosition.X - 12, ScreenPosition.Y + 10);
-            Point topBodyR = new Point(ScreenPosition.X + 12, ScreenPosition.Y + 10);
+            Point bottomBodyL = new Point(ScreenPosition.X - 16, ScreenPosition.Y + 25);
+            Point bottomBodyR = new Point(ScreenPosition.X + 16, ScreenPosition.Y + 25);
+            Point topBodyL = new Point(ScreenPosition.X - 8, ScreenPosition.Y + 5);
+            Point topBodyR = new Point(ScreenPosition.X + 8, ScreenPosition.Y + 5);
+            //weird bump before crown
+            Point bumpLeft = new Point(ScreenPosition.X - 10, ScreenPosition.Y + 0);
+            Point bumpRight = new Point(ScreenPosition.X + 10, ScreenPosition.Y + 0);
+            Point bumpLeftBackToCenter = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 5);
+            Point bumpRightBackToCenter = new Point(ScreenPosition.X + 8, ScreenPosition.Y - 5);
 
             //Queen head
-            Point headLeft = new Point(ScreenPosition.X - 15, ScreenPosition.Y - 5);
-            Point headRight = new Point(ScreenPosition.X + 15, ScreenPosition.Y - 5);
-            Point headTop = new Point(ScreenPosition.X + 0, ScreenPosition.Y - 10);
+            Point headLeft = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 15);
+            Point headRight = new Point(ScreenPosition.X + 8, ScreenPosition.Y - 15);
+            Point crownBaseL = new Point(ScreenPosition.X - 4, ScreenPosition.Y - 15);//do
+            Point crownBaseR = new Point(ScreenPosition.X + 4, ScreenPosition.Y - 15);
+            //Crown Drawing
+            Point crossLI = new Point(ScreenPosition.X - 12, ScreenPosition.Y - 23);//
+            Point crossLO = new Point(ScreenPosition.X - 14, ScreenPosition.Y - 28);
+            Point crossLOU = new Point(ScreenPosition.X - 8, ScreenPosition.Y - 30);
+            Point crossLOR = new Point(ScreenPosition.X - 4, ScreenPosition.Y - 28);
+            Point crossLIU = new Point(ScreenPosition.X + 0, ScreenPosition.Y - 20);
+            Point crossMR = new Point(ScreenPosition.X + 4, ScreenPosition.Y - 28);
+            Point crossRD = new Point(ScreenPosition.X + 8, ScreenPosition.Y - 30);
+            Point crossROR = new Point(ScreenPosition.X + 14, ScreenPosition.Y - 28);
+            Point crossROD = new Point(ScreenPosition.X + 12, ScreenPosition.Y - 23);
 
             Point[] queen = new Point[]
             {
-                bottomLeft,
-                baseTopL,
+                baseWallLeft,
+                BaseSlantLeft,
                 bottomBodyL,
                 topBodyL,
+                bumpLeft,
+                bumpLeftBackToCenter,
                 headLeft,
-                headTop,
+                crownBaseL,
+
+                crossLI,
+                crossLO,
+
+                crossLOU,
+                crossLOR,
+
+                crossLIU,
+                crossMR,
+
+                crossRD,
+                crossROR,
+
+                crossROD,
+
+                crownBaseR,
                 headRight,
+                bumpRightBackToCenter,
+                bumpRight,
                 topBodyR,
                 bottomBodyR,
-                baseTopR,
-                bottomRight,
+                BaseSlantRight,
+                baseWallRight
             };
 
             using (var brush = new SolidBrush(PieceColorValue))
